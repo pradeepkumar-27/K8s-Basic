@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: webserverv2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      region: IN
+    matchExpressions:
+      - { key: team, operator: In, values: [alpha,beta] }
+  template:
+    metadata:
+      name: "webserer"
+      labels:
+        region: IN
+        team: alpha
+        app: v2
+    spec:
+      containers:
+        - name: webserer
+          image: pradeepkumar27/webserver-php:v1

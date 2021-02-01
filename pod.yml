@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "webserver.in"
+  labels:
+    app: webserver
+    region: IN
+    team: beta
+spec:
+  containers:
+    - name: "webserver"
+      image: "pradeepkumar27/apache-webserver-php"
